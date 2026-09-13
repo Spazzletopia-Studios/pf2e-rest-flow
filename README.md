@@ -245,3 +245,7 @@ coming to the [SpazzMods Patreon](https://www.patreon.com/user?u=224896501).
 ## Compatibility
 
 Foundry VTT v13–v14 (verified 14) · pf2e system 8.x (verified 8.4.x).
+
+## Get help
+
+[Get Help](https://github.com/Spazzletopia-Studios/spazzmods-support) — report a bug, get install help, ask a question, or suggest an idea.
