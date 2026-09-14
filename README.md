@@ -14,13 +14,18 @@ Manifest URL** box:
 
 ## Using it
 
+- The Party table shows **Character / HP**, **Healing**, **Food**, **Daily
+  prep**, and **Ready** together. Click a character's name to open their
+  plan; one detail row stays open at a time. **Spells**, **Gear**, and
+  **Sheet** open that character's native sheet where you need it.
 - The GM opens a preparation board (the campground button in the token scene
   controls, or `game.pf2eRestFlow.open()`), and every connected player sees
   the same live board with their own row.
 - Each player queues healing, food, and daily-preparation choices, then marks
   **Ready for GM**. These clicks do not change HP, inventory, spell slots,
   staff charges, or PF2e selectors.
-- Only the GM sees **Start Rest** and **Cancel Rest**. Cancel closes the plan
+- The GM's **Show Players**, **Start Rest**, and **Cancel Rest** controls stay
+  below the scrolling party list. Cancel asks for confirmation, then closes the plan
   with zero actor changes. Until every selected character is ready, the board
   names the exact characters that Start Rest is waiting for.
 - **Start Rest** is the one commit point. It applies end-of-night work, calls
@@ -57,7 +62,7 @@ party, applies daily preparation, and posts one result card per character.
    healer button on that row is disabled *before* any roll, naming the
    effect. A healer without a usable **healer's toolkit** (worn or held;
    Violet Ray and Marvelous Medicines count) is disabled too, with a tooltip
-   saying so. A **Done** mark closes the step by hand.
+   saying so. **Finish / skip healing** closes the optional step by hand.
 
    **Queue heal spells** — when the row's own PC can cast healing, an extra
    button saves a commit-time plan. At Start Rest it picks the LOWEST-HP living hurt party member,
