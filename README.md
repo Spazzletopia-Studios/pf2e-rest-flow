@@ -1,7 +1,8 @@
 # PF2e Rest Flow
 
 Runs a GM-controlled party rest on one shared board. Players queue food,
-healing, daily choices, and readiness. Players never execute PF2e rest.
+healing, daily choices, and readiness. Treat Wounds heals at once. Players
+never execute PF2e rest.
 
 ## Install
 
@@ -23,7 +24,11 @@ Manifest URL** box:
   the same live board with their own row.
 - Each player queues healing, food, and daily-preparation choices, then marks
   **Ready for GM**. These clicks do not change HP, inventory, spell slots,
-  staff charges, or PF2e selectors.
+  staff charges, or PF2e selectors. **Treat Wounds** is the one exception: the
+  healing and the immunity land as soon as the healer rolls.
+- The next thing to click glows, and a **Next:** line says it in words: food
+  first, then healing, then **Ready for GM**. A healer's hurt patients glow
+  too, and the GM's **Start Rest** glows when everyone is ready.
 - The GM's **Show Players**, **Start Rest**, and **Cancel Rest** controls stay
   below the scrolling party list. Cancel asks for confirmation, then closes the plan
   with zero actor changes. Until every selected character is ready, the board
@@ -41,28 +46,31 @@ Spazzletopia Studios for the Pathfinder Second Edition system on Foundry VTT.
 
 The GM opens a preparation board and every connected player sees the same
 live plan. Checks can roll while planning, but irreversible character changes
-wait. **Start Rest** applies the plan, calls the system rest once for the
-party, applies daily preparation, and posts one result card per character.
+wait — except Treat Wounds, which heals the moment it is rolled. **Start
+Rest** applies the plan, calls the system rest once for the party, applies
+daily preparation, and posts one result card per character.
 
 ## The flow, per row
 
-1. **Heal-up** *(optional)* — a live HP chip and **named healer buttons**:
-   every party member trained in Medicine appears as a button on every OTHER
-   character's heal line (and a **self** button on their own). Clicking
-   "Vanara Druid" on the Centaur's row rolls the *Druid's* Medicine through
-   the real check pipeline and applies the result to the *Centaur*:
+1. **Heal-up** *(optional)* — a live HP chip and, on the row of every party
+   member trained in Medicine, a **Treat Wounds** picker with one button per
+   patient (themselves included). Clicking "Fumbus" on Valeros's row rolls
+   *Valeros's* Medicine through the real check pipeline and treats *Fumbus*:
    RAW Treat Wounds — success 2d8, critical success 4d8, plus the DC-tier
    bonus (trained DC 15 / expert DC 20 +10 / master DC 30 +30 / legendary
    DC 40 +50 — the attempted tier is a world setting, clamped to each
-   healer's proficiency); a critical failure deals the patient 1d8. Success
-   queues the rolled result. At GM Start Rest, success also removes the
-   Wounded condition. The system's **Treat Wounds immunity** effect lands on
-   the patient (1 hour; 10 minutes when the healer has Continual Recovery) —
-   and while any such effect is present (ours or PF2e Workbench's), every
-   healer button on that row is disabled *before* any roll, naming the
-   effect. A healer without a usable **healer's toolkit** (worn or held;
-   Violet Ray and Marvelous Medicines count) is disabled too, with a tooltip
-   saying so. **Finish / skip healing** closes the optional step by hand.
+   healer's proficiency); a critical failure deals the patient 1d8. The
+   healing dice roll into chat and the GM's client applies them **at once**:
+   the HP, the removal of the Wounded condition on a success, and the
+   system's **Treat Wounds immunity** effect for any result (1 hour; 10
+   minutes when the healer has Continual Recovery). Start Rest never applies
+   it again; the character's card still names it. While any such immunity
+   effect is present (ours or PF2e Workbench's), that patient's button is
+   disabled *before* any roll, naming the effect. A healer without a usable
+   **healer's toolkit** (worn or held; Violet Ray and Marvelous Medicines
+   count) is disabled too, with a tooltip saying so. Buttons for hurt
+   patients who can still be treated glow. **Finish / skip healing** closes
+   the optional step by hand; a success closes it for the patient.
 
    **Queue heal spells** — when the row's own PC can cast healing, an extra
    button saves a commit-time plan. At Start Rest it picks the LOWEST-HP living hurt party member,
@@ -120,8 +128,9 @@ party, applies daily preparation, and posts one result card per character.
    Any changed food, healing, or daily choice clears readiness.
 
 Every queued entry lands in a per-row log. Food, healing, and preparation can
-be changed before Start Rest. After Start Rest, the per-character chat cards
-are the durable record of what applied and what failed.
+be changed before Start Rest. A Treat Wounds that already healed stays on the
+board; the GM cannot undo it there. After Start Rest, the per-character chat
+cards are the durable record of what applied and what failed.
 
 ## Foraging: the fed-count table
 
