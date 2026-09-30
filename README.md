@@ -81,7 +81,8 @@ daily preparation, and posts one result card per character.
    Recognized healing spells (each amount comes from the spell's own system
    data at the cast rank, never a hardcoded table): **Heal** (2-action
    variant, rank×d8 + 8×rank), **Soothe** (rank×d10 + 4×rank), **Lively
-   Flight** (6d8, +2d8/rank), **Shock to the System** (8d8, +2d8/rank), and
+   Flight** (6d8, +2d8/rank; PF2e 8.x only, not in PF2e 7.12.2), **Shock to
+   the System** (8d8, +2d8/rank), and
    the focus spells **Lay on Hands** (6/rank), **Rebuke Death** (3d6,
    +1d6/rank) and **Soothing Mist** (2d8, +1d8/rank). Spend order — *heal
    taking priority*: divine-font Heal → Heal from slots (highest rank first)
@@ -119,7 +120,8 @@ daily preparation, and posts one result card per character.
    compact. A
    prepared caster can
    select one real prepared slot to
-   add its rank to the staff's charges at Start Rest. When PF2e Wand & Staff
+   add its rank to the staff's charges at Start Rest; only that slot is marked
+   expended, the rank's other prepared spells stay. When PF2e Wand & Staff
    Casting is active and that staff has an Item entry, Rest Flow recharges and
    adjusts that exact item-local pool; casting and daily prep never show two
    different counters. Rest Flow keeps its own standalone fallback, so there is
@@ -128,9 +130,11 @@ daily preparation, and posts one result card per character.
    Any changed food, healing, or daily choice clears readiness.
 
 Every queued entry lands in a per-row log. Food, healing, and preparation can
-be changed before Start Rest. A Treat Wounds that already healed stays on the
-board; the GM cannot undo it there. After Start Rest, the per-character chat
-cards are the durable record of what applied and what failed.
+be changed before Start Rest; the trash can on a row's daily choices removes
+every queued selector, staff and preset. A Treat Wounds that already healed
+stays on the board; the GM cannot undo it there. After Start Rest, the
+per-character chat cards are the durable record of what applied and what
+failed.
 
 ## Foraging: the fed-count table
 
@@ -258,7 +262,8 @@ coming to the [SpazzMods Patreon](https://www.patreon.com/user?u=224896501).
 
 ## Compatibility
 
-Foundry VTT v13–v14 (verified 14) · pf2e system 8.x (verified 8.4.x).
+Foundry VTT v13 and v14 (verified 14) · pf2e system 7.12.2 or newer 7.x on
+Foundry v13, 8.x on Foundry v14 (verified 8.5.1).
 
 ## Get help
 
